@@ -2,24 +2,34 @@
 <p align="center">
    <img align="center" src="Screenshot_2024-03-11_at_12-44-30_DALL_E_2-removebg-preview.png" alt="midudev" height="90px" width="90px" />
 </p>
-<p align="center">¡Hola, soy Santiago Arango Villa! 🚀</p>
+<p align="center">¡Hola, soy Santiago Arango Villa!</p>
 <p align="center">
   En este proyecto, te presento SignSense, una aplicación innovadora que convierte señales y sonidos del entorno en representaciones visuales y táctiles, brindando una experiencia alternativa del mundo auditivo para personas sordas.
 </p>
-<h2 align="center">🌟 ¿Por qué SignSense? 🌟</h2>
+<h2 align="center">¿Por qué SignSense?</h2>
 <p align="center">
   <strong>¡Porque la inclusión es fundamental en la tecnología!</strong> 💻<br>
-  SignSense nace de la necesidad de proporcionar soluciones inclusivas y accesibles para personas sordas, permitiéndoles experimentar el mundo auditivo de manera única.
+  SignSense nace de la necesidad de proporcionar soluciones inclusivas y accesibles para personas sordas, permitiéndoles experimentar el mundo auditivo de manera única, y creyendo en sistemas adaptables a entornos sin soporte retroactivo.
 </p>
 <h2 align="center">🚀 ¿Qué ofrece SignSense? 🚀</h2>
 <p align="center">
   Desde <strong>la conversión de señales</strong> hasta <strong>representaciones visuales y táctiles</strong>, SignSense ofrece una experiencia completa y adaptativa. Algunos aspectos destacados incluyen:
 </p>
 <ul align="center"; type="none">
-  <li>🔥 Conversión de señales y sonidos del entorno.</li>
-  <li>🌐 Representaciones visuales y táctiles para una experiencia alternativa.</li>
-  <li>📊 Personalización basada en preferencias y ubicación del usuario.</li>
+  <li>Conversión de señales y sonidos del entorno.</li>
+  <li>Representaciones visuales y táctiles para una experiencia alternativa.</li>
+  <li>Personalización basada en preferencias y ubicación del usuario.</li>
+   <li>Integracion a sistemas que nunca plantearon una integracion</li>
 </ul>
+<h2 align="center">Uso de las librerías:</h2>
+<ul align="center">
+  <li><strong>NumPy:</strong> Para el procesamiento eficiente de datos relacionados con las señales y sonidos.</li>
+  <li><strong>Pandas:</strong> Para organizar y gestionar bases de datos de usuarios, preferencias y patrones de uso.</li>
+  <li><strong>Matplotlib:</strong> Para la creación de visualizaciones interactivas que representen de manera efectiva las señales convertidas.</li>
+  <li><strong>Scipy:</strong> Utilizado para implementar algoritmos avanzados de procesamiento de señales.</li>
+  <li><strong>Geopandas:</strong> Integración de datos geoespaciales para adaptar la experiencia según la ubicación del usuario.</li>
+</ul>
+
 <h2 align="center">🔥 ¡Únete a SignSense! 🔥</h2>
 <p align="center">
   Si estás listo para ser parte de este proyecto que transforma la tecnología en inclusión,

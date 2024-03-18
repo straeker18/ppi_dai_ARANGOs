@@ -11,7 +11,7 @@
   <strong>¡Porque la inclusión es fundamental en la tecnología!</strong> 💻<br>
   SignSense nace de la necesidad de proporcionar soluciones inclusivas y accesibles para personas sordas, permitiéndoles experimentar el mundo auditivo de manera única, y creyendo en sistemas adaptables a entornos sin soporte retroactivo.
 </p>
-<h2 align="center">🚀 ¿Qué ofrece SignSense? 🚀</h2>
+<h2 align="center"> ¿Qué ofrece SignSense? </h2>
 <p align="center">
   Desde <strong>la conversión de señales</strong> hasta <strong>representaciones visuales y táctiles</strong>, SignSense ofrece una experiencia completa y adaptativa. Algunos aspectos destacados incluyen:
 </p>

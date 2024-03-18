@@ -42,7 +42,7 @@
   ¡Nos vemos en nuestro próximo hito!
 </p>
 <p align="center" width="300">
-   <img align="center" width="500" src="patreon.png" />
+   <img align="center" width="500" src="2560px-Patreon_logo_with_wordmark.svg.png" />
    <h3 align="center">¡Hola, me llamo Santiago Arango Villa! 🐈‍👨🏻‍💻</h3>
 </p>
 <p align="center">Soy <strong>Estudiante de la Universidad Nacional de Colombia</strong> y programador entusiasta 🐈‍⬛.<br />¡Puedes encontrarme aquí! 👇</p>

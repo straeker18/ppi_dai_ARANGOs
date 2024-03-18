@@ -22,7 +22,7 @@
    <li>Integracion a sistemas que nunca plantearon una integracion</li>
 </ul>
 <h2 align="center">Uso de las librerías:</h2>
-<ul align="center">
+<ul align="center"; type="none">
   <li><strong>NumPy:</strong> Para el procesamiento eficiente de datos relacionados con las señales y sonidos.</li>
   <li><strong>Pandas:</strong> Para organizar y gestionar bases de datos de usuarios, preferencias y patrones de uso.</li>
   <li><strong>Matplotlib:</strong> Para la creación de visualizaciones interactivas que representen de manera efectiva las señales convertidas.</li>
@@ -33,7 +33,7 @@
 <h2 align="center">🔥 ¡Únete a SignSense! 🔥</h2>
 <p align="center">
   Si estás listo para ser parte de este proyecto que transforma la tecnología en inclusión,
-  ¡únete y comencemos este emocionante viaje juntos!
+  ¡únete y colabora por un futuro mas unido!
 </p>
 <p align="center">
   ¡Gracias por contribuir a la creación de un mundo más inclusivo y por permitirnos ser tu guía en esta aventura! 🚀

@@ -1,6 +1,6 @@
 <h1 align="center">¡Bienvenido a SignSense!</h1>
 <p align="center">
-   <img align="center" src="[Screenshot_2024-03-11_at_12-44-30_DALL_E_2-removebg-preview.png](https://github.com/straeker18/ppi_dai_ARANGOs/blob/0d4846a37ead4c1294ed2a7c6f80ec03564577e4/sortdo.png)" alt="midudev" height="90px" width="90px" />
+   <img align="center" src="sortdo.png¨ alt="midudev" height="90px" width="90px" />
 </p>
 <p align="center">¡Hola, soy Santiago Arango Villa!</p>
 <p align="center">

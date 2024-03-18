@@ -30,13 +30,13 @@
   <li><strong>Geopandas:</strong> Integración de datos geoespaciales para adaptar la experiencia según la ubicación del usuario.</li>
 </ul>
 
-<h2 align="center">🔥 ¡Únete a SignSense! 🔥</h2>
+<h2 align="center"> ¡Únete a SignSense! </h2>
 <p align="center">
   Si estás listo para ser parte de este proyecto que transforma la tecnología en inclusión,
   ¡únete y colabora por un futuro mas unido!
 </p>
 <p align="center">
-  ¡Gracias por contribuir a la creación de un mundo más inclusivo y por permitirnos ser tu guía en esta aventura! 🚀
+  ¡Gracias por contribuir a la creación de un mundo más inclusivo y por permitirnos ser tu guía en esta aventura!
 </p>
 <p align="center">
   ¡Nos vemos en nuestro próximo hito!

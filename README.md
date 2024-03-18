@@ -1,6 +1,6 @@
 <h1 align="center">¡Bienvenido a SignSense!</h1>
 <p align="center">
-   <img align="center" src="sortdo.png¨ alt="midudev" height="90px" width="90px" />
+   <img align="center" src="sortdo.png" alt="midudev" height="90px" width="90px" />
 </p>
 <p align="center">¡Hola, soy Santiago Arango Villa!</p>
 <p align="center">

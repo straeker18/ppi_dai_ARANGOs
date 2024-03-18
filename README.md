@@ -42,7 +42,7 @@
   ¡Nos vemos en nuestro próximo hito!
 </p>
 <p align="center" width="300">
-   <img align="center" width="500" src="https://user-images.githubusercontent.com/49077085/188249249-e99d96af-a9d9-45d9-b331-afe871b13153.png" />
+   <img align="center" width="500" src="patreon.png" />
    <h3 align="center">¡Hola, me llamo Santiago Arango Villa! 🐈‍👨🏻‍💻</h3>
 </p>
 <p align="center">Soy <strong>Estudiante de la Universidad Nacional de Colombia</strong> y programador entusiasta 🐈‍⬛.<br />¡Puedes encontrarme aquí! 👇</p>

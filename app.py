@@ -3,7 +3,7 @@ import mysql.connector
 from mysql.connector import Error
 
 app = Flask(__name__, template_folder='template')
-app.secret_key = "pincheclave"
+app.secret_key = "clave"
 
 def get_db_connection():
     try:

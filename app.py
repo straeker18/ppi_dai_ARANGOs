@@ -5,6 +5,7 @@ from mysql.connector import Error
 app = Flask(__name__, template_folder='template')
 app.secret_key = "clave"
 
+
 def get_db_connection():
     try:
         conn = mysql.connector.connect(
@@ -19,13 +20,16 @@ def get_db_connection():
         print(f"Error: {e}")
     return None
 
+
 @app.route('/')
 def home():
-    return render_template('index.html')   
+    return render_template('index.html')
+
 
 @app.route('/admin')
 def admin():
-    return render_template('admin.html')   
+    return render_template('admin.html')
+
 
 @app.route('/acceso-login', methods=["GET", "POST"])
 def login():
@@ -45,7 +49,7 @@ def login():
                 account = None
             finally:
                 conn.close()
-            
+
             if account:
                 session['logueado'] = True
                 session['id'] = account['id']
@@ -56,6 +60,7 @@ def login():
             return render_template('index.html', mensaje="No se pudo conectar a la base de datos")
 
     return render_template('index.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=5000, threaded=True)

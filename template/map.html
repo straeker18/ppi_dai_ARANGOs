@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignSense - Mapa Interactivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #6b5b95, #b8a9c9);
+            color: black;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .map-container {
+            flex: 1;
+            position: relative;
+        }
+        .footer {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 1000; /* Asegura que los botones estén sobre el mapa */
+        }
+        .btn-custom {
+            background-color: #6b5b95;
+            border: none;
+            color: white;
+            margin: 5px;
+        }
+        .btn-custom:hover {
+            background-color: #5a4a84;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="map-container" id="map"></div>
+
+    <div class="footer">
+        <button class="btn btn-custom" onclick="location.href='/'">Regresar al Inicio</button>
+        <button class="btn btn-custom" onclick="centerMap()">Ubicar en Colombia</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <script>
+        // Inicializa el mapa
+        var map = L.map('map', {
+            center: [4.7110, -74.0721],
+            zoom: 6,
+            maxZoom: 11,
+            minZoom: 5
+        });
+
+        // Agrega el mapa base de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Definir la función para centrar el mapa en Colombia
+        function centerMap() {
+            map.setView([4.7110, -74.0721], 6); // Coordenadas y zoom para centrar en Colombia
+        }
+
+        // Cargar los datos desde un CSV y agregar pines
+        $.get('/ruta/al/archivo.csv', function(data) {
+            var lines = data.split('\n');
+            for (var i = 1; i < lines.length; i++) {
+                var row = lines[i].split(',');
+                var lat = parseFloat(row[0]);
+                var lon = parseFloat(row[1]);
+                var name = row[2];
+                var contact = row[3];
+
+                L.marker([lat, lon]).addTo(map)
+                    .bindPopup('<b>' + name + '</b><br>' + contact);
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignSense - Mapa Interactivo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #6b5b95, #b8a9c9);
+            color: black;
+            margin: 0;
+            padding: 0;
+        }
+        .header {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+        .header img {
+            width: 100px;
+        }
+        .content {
+            padding: 20px;
+        }
+        .map-container {
+            height: 500px;
+            margin-top: 20px;
+            border: 1px solid #ccc;
+        }
+        .footer {
+            padding: 10px;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-top: 1px solid #ccc;
+        }
+        .btn-custom {
+            background-color: #6b5b95;
+            border: none;
+        }
+        .btn-custom:hover {
+            background-color: #5a4a84;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <img src="C:\Users\santi\Documents\trabajo python\sortdo.png" alt="SignSense">
+        <h1 class="t">SignSense</h1>
+    </div>
+
+    <div class="content">
+        <h2>¿Por qué aprender lenguaje de señas?</h2>
+        <p>El lenguaje de señas es esencial para la comunicación con la comunidad sorda. Aprenderlo no solo es un acto de inclusión, sino también una habilidad valiosa que enriquece la interacción social.</p>
+        <h3>Diccionario de Señas</h3>
+        <p>Explora nuestro <a href="#">diccionario interactivo</a> de señas y empieza a aprender hoy.</p>
+
+        <div class="map-container" id="map"></div>
+
+        <div class="footer">
+            <button class="btn btn-custom" onclick="location.href='/'">Regresar al Inicio</button>
+            <button class="btn btn-custom" onclick="location.href='/mapa'">Ver Mapa</button>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+
+    <script>
+        // Inicializa el mapa
+        var map = L.map('map').setView([4.7110, -74.0721], 5); // Ubicación inicial en Colombia
+
+        // Agrega el mapa base de OpenStreetMap
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        // Cargar los datos desde un CSV y agregar pines
+        $.get('ruta/al/archivo.csv', function(data) {
+            var lines = data.split('\n');
+            for (var i = 1; i < lines.length; i++) {
+                var row = lines[i].split(',');
+                var lat = parseFloat(row[0]);
+                var lon = parseFloat(row[1]);
+                var name = row[2];
+                var contact = row[3];
+
+                L.marker([lat, lon]).addTo(map)
+                    .bindPopup('<b>' + name + '</b><br>' + contact);
+            }
+        });
+    </script>
+</body>
+</html>
+

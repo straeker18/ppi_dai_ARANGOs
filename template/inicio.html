@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Inicio - SignSense</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(45deg, #6b5b95, #b8a9c9);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .container {
+            text-align: center;
+            padding: 50px;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 1.2em;
+            margin-bottom: 40px;
+        }
+        a {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            text-decoration: none;
+            font-size: 1.2em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        a:hover {
+            background-color: #ff3b30;
+        }
+        .features, .contact {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        .features h2, .contact h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .features ul {
+            list-style-type: none;
+            padding: 0;
+            font-size: 1.1em;
+        }
+        .features ul li {
+            margin: 10px 0;
+        }
+        .contact form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .contact form input, .contact form textarea {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        .contact form button {
+            padding: 10px 20px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact form button:hover {
+            background-color: #ff3b30;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.3);
+        }
+        /* Estilo reducido para el botón de estado de sesión */
+        .session-status {
+            font-size: 0.9em;
+        }
+        .session-status a {
+            padding: 5px 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Estado de sesión -->
+    <div class="container mt-4 session-status">
+        {% if logueado %}
+        <h1>¡Bienvenido a SignSense!</h1>
+            <p>Hola, {{ session.usuario_nombre }}! <a href="/logout">Cerrar sesión</a></p>
+        {% else %}
+            <p>No estás logueado. <a href="/acceso-login">Iniciar sesión</a></p>
+        {% endif %}
+    </div>
+
+    <div class="container">
+
+        <p>Un proyecto innovador que transforma la forma en que interactuamos con el lenguaje de señas.</p>
+        {% if not logueado %}
+            <a href="{{ url_for('home') }}">Ingresar</a>
+        {% else %}
+            <a href="/start">Ir a Inicio</a>
+        {% endif %}
+    </div>
+
+    <div class="features">
+        <h2>Características del Proyecto</h2>
+        <ul>
+            <li>Reconocimiento de lenguaje de señas en tiempo real.</li>
+            <li>Interfaz de usuario intuitiva y accesible.</li>
+            <li>Compatible con múltiples idiomas y dialectos de señas.</li>
+            <li>Soporte multiplataforma: web y móvil.</li>
+            <li>Almacenamiento seguro de datos para usuarios registrados.</li>
+        </ul>
+    </div>
+
+    <div class="contact">
+        <h2>Contacto</h2>
+        <form action="/send-contact" method="POST">
+            <input type="text" name="nombre" placeholder="Tu Nombre" required>
+            <input type="email" name="email" placeholder="Tu Correo" required>
+            <textarea name="mensaje" rows="5" placeholder="Tu Mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </div>
+
+    <footer>
+        &copy; 2024 SignSense. Todos los derechos reservados.
+    </footer>
+</body>
+</html>

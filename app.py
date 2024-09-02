@@ -26,25 +26,25 @@ def close_connection(exception):
 def usuario_logueado():
     return 'logueado' in session and session['logueado']
 
-
+# Ruta para la página de inicio
 @app.route('/')
 def inicio():
     logueado = usuario_logueado()
     return render_template('inicio.html', logueado=logueado)
 
-
+# Ruta para la página principal
 @app.route('/index')
 def home():
     logueado = usuario_logueado()
     return render_template('index.html', logueado=logueado)
 
-
+# Ruta para la página de administración
 @app.route('/admin')
 def admin():
     logueado = usuario_logueado()
     return render_template('admin.html', logueado=logueado)
 
-
+# Ruta para el acceso de login
 @app.route('/acceso-login', methods=["GET", "POST"])
 def login():
     if usuario_logueado():  # Si el usuario ya está logueado, redirigir a start.html
@@ -70,7 +70,7 @@ def login():
 
     return render_template('index.html', logueado=False)
 
-
+# Ruta para el registro de nuevos usuarios
 @app.route('/register', methods=['GET', 'POST'])
 def register():
     if request.method == 'POST' and 'email' in request.form and 'password' in request.form:
@@ -93,7 +93,7 @@ def register():
 
     return render_template('register.html')
 
-
+# Ruta para enviar un mensaje de contacto
 @app.route('/send-contact', methods=['POST'])
 def send_contact():
     nombre = request.form['nombre']
@@ -103,7 +103,7 @@ def send_contact():
     # Aquí puedes agregar lógica para enviar el mensaje por correo electrónico
     return render_template('inicio.html', mensaje="¡Gracias por contactarnos! Te responderemos pronto.")
 
-
+@app.route('/mapa')
 @app.route('/mapa')
 def mapa():
     if not usuario_logueado():  # Verificar si el usuario está logueado
@@ -111,7 +111,7 @@ def mapa():
     nombre_usuario = session.get('usuario_nombre', 'Usuario')  # Obtener el nombre del usuario
     return render_template('map.html', nombre_usuario=nombre_usuario)
 
-
+# Ruta de inicio después de loguearse
 @app.route('/start')
 def start():
     if not usuario_logueado():
@@ -119,7 +119,7 @@ def start():
     nombre_usuario = session.get('usuario_nombre', 'Usuario')
     return render_template('start.html', nombre_usuario=nombre_usuario)
 
-
+# Ruta para cerrar sesión
 @app.route('/logout')
 def logout():
     session.pop('logueado', None)

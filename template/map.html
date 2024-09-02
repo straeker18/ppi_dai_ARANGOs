@@ -59,7 +59,7 @@
         var map = L.map('map', {
             center: [4.7110, -74.0721],
             zoom: 6,
-            maxZoom: 11,
+            maxZoom: 110,
             minZoom: 5
         });
 
@@ -74,19 +74,23 @@
         }
 
         // Cargar los datos desde un CSV y agregar pines
-        $.get('/ruta/al/archivo.csv', function(data) {
-            var lines = data.split('\n');
-            for (var i = 1; i < lines.length; i++) {
-                var row = lines[i].split(',');
-                var lat = parseFloat(row[0]);
-                var lon = parseFloat(row[1]);
-                var name = row[2];
-                var contact = row[3];
+            $.get('static/mapasordosaprendizaje.csv', function(data) {
+                var lines = data.split('\n');
+                for (var i = 1; i < lines.length; i++) {
+                    var row = lines[i].split(',');
+                    var lat = parseFloat(row[0]);
+                    var lon = parseFloat(row[1]);
+                    var name = row[2];
+                    var contact = row[3];
 
-                L.marker([lat, lon]).addTo(map)
-                    .bindPopup('<b>' + name + '</b><br>' + contact);
-            }
-        });
+                    // Generar un enlace HTML si el contacto es una URL
+                    var contactLink = contact.startsWith('http') ? '<a href="' + contact + '" target="_blank">' + contact + '</a>' : contact;
+
+                    // Agregar el marcador al mapa
+                    L.marker([lat, lon]).addTo(map)
+                        .bindPopup('<b>' + name + '</b><br>' + contactLink);
+                }
+            });
     </script>
 </body>
 </html>

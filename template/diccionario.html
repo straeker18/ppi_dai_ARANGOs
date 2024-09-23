@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diccionario de Señas - SignSense</title>
+    <!-- Enlazar el archivo CSS -->
+    <link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            SignSense
+            <img src="/static/sortdo.png" alt="SignSense Logo" class="logo-image" />
+        </div>
+        <div class="session-status">
+            {% if logueado %}
+                <p>No estás logueado. <a href="/acceso-login">Iniciar sesión</a></p>
+            {% else %}
+                <p>Hola, {{ session.usuario_nombre }}! <a href="/logout">Cerrar sesión</a></p>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="container">
+        <h1>Diccionario de Señas</h1>
+
+        <!-- Recorre las categorías -->
+        {% for categoria, senas in categorias_senas.items() %}
+        <div class="categoria-section">
+            <h2>{{ categoria }}</h2>
+            <div class="diccionario-container">
+                <!-- Recorre las señas dentro de la categoría -->
+                {% for seña in senas %}
+                <div class="diccionario-item">
+                    <h3>{{ seña.nombre }}</h3>
+                    <img src="{{ seña.img }}" alt="Imagen de seña">
+                    <p>{{ seña.descripcion }}</p>
+                </div>
+                {% endfor %}
+            </div>
+
+        {% endfor %}
+        <div class="session-status">
+            {% if not logueado %}
+            <a href="/start">Pagina principal</a>
+        {% else %}
+            <a href="/">Ir a Inicio</a>
+        {% endif %}
+
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SignSense. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

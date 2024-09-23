@@ -37,10 +37,10 @@
             font-weight: bold;
         }
         .logo-image {
-            border-radius: 50%; /* Bordes redondeados para la imagen */
+            border-radius: 50%;
             height: 60px;
             width: 75px;
-            margin-left: 10px; /* Espacio entre el texto y la imagen */
+            margin-left: 10px;
         }
 
         .session-status {
@@ -90,11 +90,11 @@
             background-color: rgba(0, 0, 0, 0.2);
             border-radius: 5px;
             margin: 5px 0;
-            height: 400px; /* Ajusta la altura del carrusel */
+            height: 400px;
         }
         .carousel {
             display: flex;
-            width: 200%; /* Duplicar el ancho del carrusel */
+            width: 200%;
             animation: slide 40s linear infinite;
         }
         @keyframes slide {
@@ -102,7 +102,7 @@
             100% { transform: translateX(-102.7%); }
         }
         .carousel-item {
-            flex: 1 0 12.5%; /* Ajusta el tamaño de los elementos según el número total de elementos */
+            flex: 1 0 12.5%;
             box-sizing: border-box;
             padding: 15px;
             background-color: rgba(255, 255, 255, 0.1);
@@ -183,6 +183,38 @@
             cursor: pointer;
             transition: background-color 0.3s ease;
         }
+        }
+        .about-me {
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.2);
+            margin: 20px 0;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .about-me h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+        .about-me p {
+            font-size: 1.2em;
+        }
+        .about-me a {
+            padding: 10px 15px;
+            margin: 15px;
+            background-color: #ff6f61;
+            color: white;
+            text-decoration: none;
+            font-size: 1em;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        .about-me a:hover {
+            background-color: #ff3b30;
+        }
+        .about-me img {
+            margin-top: 15px;
+            max-width: 150px;
+        }
         .contact form button:hover {
             background-color: #ff3b30;
         }
@@ -197,7 +229,7 @@
     <header>
         <div class="logo">
             SignSense
-            <img src="/static/sortdo.png" alt="midudev" class="logo-image" />
+            <img src="/static/sortdo.png" alt="SignSense Logo" class="logo-image" />
         </div>
         <div class="session-status">
             {% if logueado %}
@@ -222,67 +254,70 @@
         <div class="carousel">
             <!-- Contenido del carrusel -->
             <div class="carousel-item">
-                <img src="https://raw.githubusercontent.com/straeker18/ppi_dai_ARANGOs/main/static/sordo%20mudo%201.jfif" alt="App 1">
+                <img src="static/sordo mudo 1.jfif" alt="App 1">
                 <h3>Descubre el Mundo de la Comunicación No Verba</h3>
                 <p>Aprende el lenguaje de señas para conectar con la comunidad sorda y mejorar tu comunicación diaria.</p>
             </div>
             <div class="carousel-item">
-                <img src="https://raw.githubusercontent.com/straeker18/ppi_dai_ARANGOs/main/static/sordo%20mudo%20.jfif" alt="App 2">
+                <img src="static/sordo mudo .jfif" alt="App 2">
                 <h3>Conéctate con Más Personas</h3>
                 <p>Interactúa con un grupo más amplio y enriquece tus relaciones personales y profesionales.</p>
             </div>
             <div class="carousel-item">
-                <img src="static/imagen_3_inicio.jpg" alt="App 3">
+                <img src="static/imagen 3 inicio.jpg" alt="App 3">
                 <h3>Transforma tu Empatía en Acción</h3>
                 <p>Apoya y comprende mejor a la comunidad sorda, marcando una diferencia significativa.</p>
             </div>
             <div class="carousel-item">
-                <img src="static/imagen_4_inicio.png" alt="App 4">
+                <img src="static/imagen 4 inicio.png" alt="App 4">
                 <h3>Rompe Barreras de Comunicación</h3>
                 <p>Elimina barreras auditivas y construye puentes entre diferentes capacidades.</p>
             </div>
             <div class="carousel-item">
-                <img src="static/imagen_5_inicio.jpg" alt="App 5">
+                <img src="static/imagen 5 inicio.jpg" alt="App 5">
                 <h3>Amplía tus Habilidades de Comunicación</h3>
                 <p>Adquiere una nueva habilidad y conviértete en un comunicador más inclusivo.</p>
             </div>
             <div class="carousel-item">
-                <img src="static/imagen_6_inicio.jpg" alt="App 6">
+                <img src="static/imagen 6 inicio.jpg" alt="App 6">
                 <h3>Involúcrate en una Causa Significativa</h3>
                 <p>Promueve la accesibilidad y la igualdad, impactando positivamente en la vida de las personas con discapacidad auditiva.</p>
             </div>
             <div class="carousel-item">
-                <img src="static/imagen_7_inicio.jpg" alt="App 7">
+                <img src="static/imagen 7 inicio.jpg" alt="App 7">
                 <h3>Haz la Diferencia!!!</h3>
                 <p>Aprende lenguaje de señas para contribuir a una mayor inclusión en tu mundo.</p>
             </div>
             <div class="carousel-item">
-                <img src="static/imagen_8_inicio.png" alt="App 8">
+                <img src="static/imagen 8 inicio.png" alt="App 8">
                 <h3>Redescubre tu expresión</h3>
                 <p>Descubre una forma única de expresar ideas, emociones y pensamientos en tu vida cotidiana.</p>
             </div>
             <div class="carousel-item">
-                <img src="https://raw.githubusercontent.com/straeker18/ppi_dai_ARANGOs/main/static/sordo%20mudo%201.jfif" alt="App 1">
+                <img src="static/sordo mudo 1.jfif" alt="App 1">
                 <h3>Descubre el Mundo de la Comunicación No Verba</h3>
                 <p>Aprende el lenguaje de señas para conectar con la comunidad sorda y mejorar tu comunicación diaria.</p>
             </div>
             <div class="carousel-item">
-                <img src="https://raw.githubusercontent.com/straeker18/ppi_dai_ARANGOs/main/static/sordo%20mudo%20.jfif" alt="App 2">
+                <img src="static/sordo mudo .jfif" alt="App 2">
                 <h3>Conéctate con Más Personas</h3>
                 <p>Interactúa con un grupo más amplio y enriquece tus relaciones personales y profesionales.</p>
             </div>
             <div class="carousel-item">
-                <img src="static/imagen_3_inicio.jpg" alt="App 3">
+                <img src="static/imagen 3 inicio.jpg" alt="App 3">
                 <h3>Transforma tu Empatía en Acción</h3>
                 <p>Apoya y comprende mejor a la comunidad sorda, marcando una diferencia significativa..</p>
             </div>
             <div class="carousel-item">
-                <img src="static/imagen_4_inicio.png" alt="App 4">
+                <img src="static/imagen 4 inicio.png" alt="App 4">
                 <h3>Rompe Barreras de Comunicación</h3>
                 <p>Elimina barreras auditivas y construye puentes entre diferentes capacidades.</p>
             </div>
+            <!-- Aquí puedes agregar más elementos al carrusel si es necesario -->
         </div>
     </div>
+
+
 
     <div class="features">
         <div class="feature-box">
@@ -290,24 +325,61 @@
             <p>Comparte tus logros y avances en el aprendizaje de lenguaje de señas a través de plataformas sociales.</p>
         </div>
         <div class="feature-box">
-            <h3>Reconocimiento de Señales</h3>
-            <p>Usa nuestra tecnología avanzada para identificar y traducir lenguaje de señas en tiempo real.</p>
+            <h3>Diccionario de Señas</h3>
+            <p>Accede a nuestro diccionario interactivo para aprender los signos y sus significados.</p>
+            <a href="/diccionario">Ver Diccionario</a> <!-- Botón para acceder al diccionario -->
         </div>
         <div class="feature-box">
             <h3>GeoPandas</h3>
-            <p>Explora y visualiza la distribución geográfica de escuelas de lenguaje de señas con mapas interactivos.</p>
+            <p>Explora la distribución geográfica de las escuelas de lenguaje de señas con mapas interactivos.</p>
         </div>
         <div class="feature-box">
             <h3>Seguridad y Privacidad</h3>
             <p>Almacena de forma segura tus datos y controla el acceso a tu información personal.</p>
         </div>
+    </div>
+
+    <div class="about-me">
+        <h2 align="center">Sobre mí</h2>
+        <p align="center">Soy <strong>Estudiante de la Universidad Nacional de Colombia</strong>,
+            programador entusiasta🐈‍⬛ y tengo un proyecto en youtube.<br />
+            ¡aquí puedes conocerme y contactarme personalmente! 👇</p>
+        <p align="center">
+        Me llamo Santiago Arango Villa soy de colombia y una poersona interesada en aprender
+            cualquier sugerencia escribe al contacto</p>
+        <p align="center">Correo: sarangovi@unal.edu.co</p>
+
+        <p align="center">
+           <a href="https://www.linkedin.com/in/santiago-arango-villa-a9297a227/" target="blank" style='margin-right:4px'>
+            <img align="center"
+                 src="https://user-images.githubusercontent.com/49077085/188248117-f2bdf648-a274-4eff-babb-967f3576d6f8.svg"
+                 alt="midudev" height="28px" width="28px" />
+          </a>
+           <a href="https://www.youtube.com/channel/UCouJY6fX7ShdDONeN3thUUA" target="blank" style='margin-right:4px'>
+            <img align="center"
+                 src="https://user-images.githubusercontent.com/49077085/188248348-624b06d3-d787-4223-8ca1-85edffe4bf04.svg"
+                 alt="midudev" height="38px" width="38px" />
+          </a>
+          <a href="https://unal.edu.co/" target="blank">
+            <img align="center"
+                 src="https://upload.wikimedia.org/wikipedia/commons/a/a2/Escudo_de_la_Universidad_Nacional_de_Colombia_%282016%29.svg"
+                 alt="midu.dev" height="48px" width="38px" />
+          </a>
+
+        </p>
+<div class="features">
         <div class="feature-box">
-            <h3>Matplotlib</h3>
-            <p>Analiza tus progresos y visualiza estadísticas del aprendizaje con gráficos detallados.</p>
+            <h3>Proyectos alternativo</h3>
+            <p>Tengo un canal de aprendizaje, si quieres pasarte.</p>
         </div>
+
         <div class="feature-box">
-            <h3>NumPy y SciPy</h3>
-            <p>Accede a funciones avanzadas de procesamiento de datos para optimizar tu experiencia de aprendizaje.</p>
+            <h3>link de Talos Programming</h3>
+            <a href="https://www.youtube.com/@TalosProgramming" target="blank" style='margin-right:4px'>
+            <img align="center"
+                 src="https://user-images.githubusercontent.com/49077085/188248348-624b06d3-d787-4223-8ca1-85edffe4bf04.svg"
+                 alt="midudev" height="38px" width="38px" />
+                </a>
         </div>
     </div>
 

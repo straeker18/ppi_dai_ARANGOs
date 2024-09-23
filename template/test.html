@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Test de Señas</title>
+    <!-- Enlazar tu archivo CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<h1 style="text-align: center;">Test de Señas</h1>
+
+<form action="{{ url_for('test', categoria=categoria) }}" method="post">
+    {% for idx, pregunta_data in enumerate(preguntas) %}
+    <div class="features"style="text-align: center;">
+        <!-- Imagen de la seña -->
+        <img src="{{ pregunta_data['pregunta']['img'] }}" alt="{{ pregunta_data['pregunta']['nombre'] }}">
+
+        <!-- Descripción de la seña -->
+        <p class="feature-box">{{ pregunta_data['pregunta']['descripcion'] }}</p>
+
+        <!-- Opciones de selección múltiple -->
+        <div class="feature-box">
+            {% for opcion_idx, opcion in enumerate(pregunta_data['opciones']) %}
+            <div>
+                <input type="radio" id="respuesta_{{ idx }}_{{ opcion_idx }}" name="respuesta_{{ idx }}" value="{{ opcion }}" required
+                    {% if respuestas_usuario and respuestas_usuario[idx] == opcion %}checked{% endif %}>
+                <label for="respuesta_{{ idx }}_{{ opcion_idx }}">{{ opcion }}</label>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+
+    <!-- Botón para enviar las respuestas -->
+    <div style="text-align: center;">
+        <button type="submit" class="btn-submit">Enviar Respuestas</button>
+        <button class="btn btn-custom" onclick="location.href='/'">Regresar al Inicio</button>
+    </div>
+
+</form>
+
+</body>
+</html>

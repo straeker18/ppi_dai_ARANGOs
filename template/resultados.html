@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Resultados del Test - SignSense</title>
+    <!-- Enlazar tu archivo CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<!-- Encabezado -->
+<header>
+    <div class="logo">
+        SignSense
+        <img src="/static/sortdo.png" alt="SignSense Logo" class="logo-image" />
+    </div>
+    <div class="session-status">
+        {% if logueado %}
+            <p>No estás logueado. <a href="/acceso-login">Iniciar sesión</a></p>
+        {% else %}
+            <p>Hola, {{ session.usuario_nombre }}! <a href="/logout">Cerrar sesión</a></p>
+        {% endif %}
+    </div>
+</header>
+
+<!-- Contenedor principal -->
+<div class="container">
+    <h1>Resultados de la categoría: {{ categoria }}</h1>
+
+    <!-- Mostrar las estadísticas -->
+    <h2>Estadísticas del Test</h2>
+    <p>Porcentaje de respuestas correctas: {{ porcentaje_correctas | round(2) }}%</p>
+    <p>Media de puntuaciones: {{ media | round(2) }}</p>
+    <p>Desviación estándar: {{ desviacion_estandar | round(2) }}</p>
+    <p>Intervalo de confianza del 95%: {{ intervalo_confianza[0] | round(2) }} - {{ intervalo_confianza[1] | round(2) }}</p>
+
+    <!-- Mostrar el gráfico generado -->
+    {% if grafico_url %}
+<div class="grafico-container">
+    <img src="{{ grafico_url }}" alt="Gráfico de Resultados" style="max-width: 100%; height: auto;">
+</div>
+{% else %}
+<p>No se pudo generar el gráfico de resultados.</p>
+{% endif %}
+    <!-- Lista de resultados por pregunta -->
+    <h2>Detalle de tus respuestas</h2>
+    <ul>
+        {% for resultado in resultados %}
+        <li>
+            <strong>Pregunta:</strong> {{ resultado.pregunta }}<br>
+            <strong>Tu respuesta:</strong> {{ resultado.respuesta_usuario }}<br>
+            {% if resultado.correcto %}
+            <span style="color:green;">¡Correcto!</span>
+            {% else %}
+            <span style="color:red;">Incorrecto</span>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+
+    <!-- Botón para volver a seleccionar categoría -->
+    <button type="button" class="btn btn-custom" onclick="location.href='{{ url_for('seleccionar_categoria') }}'">Volver a seleccionar categoría</button>
+
+</div>
+
+<!-- Pie de página -->
+<footer>
+    &copy; {{ current_year }} SignSense. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>

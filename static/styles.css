@@ -1,0 +1,234 @@
+/* Estilos generales para el cuerpo */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #6b5b95, #b8a9c9, #d4b5f7);
+    background-size: 300% 300%;
+    animation: gradient 15s ease infinite;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.features {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            padding: 30px;
+            background-color: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        .feature-box {
+            flex: 1;
+            min-width: 250px;
+            margin: 15px;
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .feature-box:hover {
+            transform: translateY(-10px);
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .feature-box h3 {
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+
+        .feature-box p {
+            font-size: 1em;
+        }
+@keyframes gradient {
+    0% { background-position: 0% 0%; }
+    50% { background-position: 100% 100%; }
+    100% { background-position: 0% 0%; }
+}
+
+/* Estilos para el encabezado */
+header {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 4em;
+    font-weight: bold;
+}
+
+.logo-image {
+    border-radius: 50%;
+    height: 60px;
+    width: 75px;
+    margin-left: 10px;
+}
+
+.session-status {
+    font-size: 1em;
+    margin: 0;
+}
+
+.session-status a {
+    padding: 5px 15px;
+    background-color: #ff6f61;
+    color: white;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.session-status a:hover {
+    background-color: #ff3b30;
+}
+
+/* Contenedores del diccionario */
+.container {
+    text-align: center;
+    padding: 50px;
+    flex: 1;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2.5em;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Contenedores de señas */
+.diccionario-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.diccionario-item {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 20px;
+    width: 200px;
+    text-align: center;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.diccionario-item:hover {
+    transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.diccionario-item img {
+    max-width: 100%;
+    border-radius: 10px;
+}
+
+.diccionario-item h3 {
+    font-size: 1.5em;
+    margin: 10px 0;
+}
+
+.diccionario-item p {
+    font-size: 1em;
+}
+
+a {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+a:hover {
+    background-color: #ff3b30;
+}
+/* Estilos para las opciones del test */
+.options-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.option {
+    display: flex;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.option:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.option input {
+    margin-right: 10px;
+}
+
+/* Estilo para el botón de enviar */
+.btn-submit {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+    background-color: #ff3b30;
+}
+
+/* Estilos para la selección de categorías */
+.category-select {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.category-select label {
+    display: flex;
+    align-items: center;
+    font-size: 1.5em;
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.category-select label:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos para el pie de página */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.3);
+}

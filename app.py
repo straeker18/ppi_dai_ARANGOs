@@ -1,4 +1,5 @@
 import os
+os.environ['MPLCONFIGDIR'] = '/tmp/matplotlib'
 import sqlite3
 from flask import Flask, render_template, request, session, g, redirect, url_for
 import numpy as np

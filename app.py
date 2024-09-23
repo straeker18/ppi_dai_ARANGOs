@@ -1,5 +1,4 @@
 import os
-os.environ['MPLCONFIGDIR'] = '/tmp/matplotlib'
 import sqlite3
 from flask import Flask, render_template, request, session, g, redirect, url_for
 import numpy as np
@@ -16,9 +15,6 @@ app = Flask(__name__, template_folder='template')
 app.secret_key = "clave_secreta"  # Cambiar a una clave segura para producción
 DATABASE = 'signsense.db'
 
-# Registrar los Blueprints
-app.register_blueprint(mapa_bp)
-app.register_blueprint(diccionario_bp)
 
 def get_db():
     """
@@ -149,7 +145,42 @@ def send_contact():
     return render_template('inicio.html', mensaje="¡Gracias por contactarnos! Te responderemos pronto.")
 
 
+@app.route('/mapa')
+def mapa():
+    """
+    Renderiza la página del mapa utilizando GeoPandas y muestra datos geoespaciales.
+    """
+    if not usuario_logueado():
+        return redirect('/acceso-login')
 
+    nombre_usuario = session.get('usuario_nombre', 'Usuario')
+
+    # Cargar datos geoespaciales usando GeoPandas
+    try:
+        # Ruta al archivo CSV con los datos del mapa
+        csv_file_path = os.path.join('static', 'mapasordosaprendizaje.csv')
+
+        # Leer el archivo CSV usando Pandas
+        df = pd.read_csv(csv_file_path)
+
+        # Asegurarse de que las columnas estén correctamente nombradas
+        df.columns = df.columns.str.strip().str.lower()
+        df.rename(columns={'lat': 'latitude', 'lon': 'longitude'}, inplace=True)
+
+        # Convertir el DataFrame en un GeoDataFrame
+        gdf = gpd.GeoDataFrame(
+            df,
+            geometry=gpd.points_from_xy(df['longitude'], df['latitude'])
+        )
+
+        # Convertir el GeoDataFrame a GeoJSON para pasarlo al template
+        geojson_data = gdf.to_json()
+
+        return render_template('map.html', nombre_usuario=nombre_usuario, geojson_data=geojson_data)
+
+    except Exception as e:
+        print(f"Error al cargar los datos geoespaciales: {e}")
+        return render_template('map.html', mensaje="No se pudo cargar el mapa.")
 @app.route('/start')
 def start():
     """
@@ -172,6 +203,33 @@ def logout():
     session.pop('usuario_nombre', None)
     return redirect('/')
 
+
+@app.route('/diccionario')
+def diccionario():
+    """
+    Renderiza la página del diccionario de señas con imágenes y descripciones cargadas desde un archivo CSV,
+    agrupadas por categorías.
+    """
+    categorias_senas = defaultdict(list)
+
+    # Ruta del archivo CSV
+    csv_file_path = os.path.join('static', 'diccionario_senas.csv')
+
+    # Leer el archivo CSV y agrupar por categorías
+    try:
+        with open(csv_file_path, newline='', encoding='utf-8') as csvfile:
+            reader = csv.DictReader(csvfile)
+            for row in reader:
+                img_url = row['img'] if row['img'] else 'static/default_image.png'  # Imagen predeterminada
+                categorias_senas[row['categoria']].append({
+                    "img": img_url,
+                    "descripcion": row['descripcion'],
+                    "nombre": row['signo']  # Columna 'signo' desde el CSV
+                })
+    except FileNotFoundError:
+        print("Error: El archivo CSV no fue encontrado.")
+
+    return render_template('diccionario.html', categorias_senas=categorias_senas)
 
 
 def cargar_datos():

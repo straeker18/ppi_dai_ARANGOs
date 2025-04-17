@@ -10,6 +10,7 @@ from collections import defaultdict
 from scipy import stats
 import geopandas as gpd  # Importar GeoPandas
 
+
 # Crear instancia de la aplicación Flask
 app = Flask(__name__, template_folder='template')
 app.secret_key = "clave_secreta"  # Cambiar a una clave segura para producción

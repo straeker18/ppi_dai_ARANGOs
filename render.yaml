@@ -1,0 +1,5 @@
+type: web
+name: signsense-app
+env: python
+start: gunicorn app:app
+buildCommand: pip install -r requirements.txt

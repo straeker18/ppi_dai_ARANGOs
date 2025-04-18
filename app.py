@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import flask
 from flask import Flask, render_template, request, session, g, redirect, url_for
 import numpy as np
 import matplotlib.pyplot as plt
@@ -364,10 +365,9 @@ def resultados(categoria):
                            intervalo_confianza=intervalo_confianza,
                            grafico_url=grafico_url)
 
+# Inicializar base de datos al importar el módulo (funciona con gunicorn y local)
+with app.app_context():
+    db = get_db()
 
 if __name__ == '__main__':
-    # Iniciar la aplicación con el contexto de la base de datos
-    with app.app_context():
-        db = get_db()
-
     app.run(debug=True, host='0.0.0.0', port=5000, threaded=True)
